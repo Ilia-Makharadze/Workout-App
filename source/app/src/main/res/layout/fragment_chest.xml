@@ -18,11 +18,11 @@
             android:text="Barbell Bench Press"
             android:textSize="18sp"
             android:textStyle="bold" />
-
+<!--        android:src="@drawable/male_barbell_bench_press_side_givnk12"-->
         <ImageView
+            android:id="@+id/barbelChestView"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:src="@drawable/male_barbell_bench_press_side_givnk12"
             android:layout_marginTop="12dp"
             android:scaleType="fitCenter"
             android:contentDescription="Barbell Bench Press" />
