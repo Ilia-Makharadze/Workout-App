@@ -56,18 +56,37 @@ class MainActivity : AppCompatActivity() {
 // JavaScript Interface კლასი
 class WebAppInterface(private val activity: MainActivity) {
 
-    // ამ ფუნქციაში მოვიდა ინფორმაცია JavaScript-იდან
     @JavascriptInterface
     fun onMuscleClicked(muscleId: String) {
-        // აქ შეგიძლიათ დაამატოთ ლოგიკა, როგორ უნდა მოიქცეს აპლიკაცია, როდესაც კუნთზე დაკლიკება ხდება
-        if (muscleId == "chest1" || muscleId == "chest2") {
-            activity.runOnUiThread {
-                val fragment = Chest()
-                activity.supportFragmentManager.beginTransaction()
-                    .replace(R.id.webview, fragment) // ID იგივე უნდა იყოს მთავარ layout-ში
-                    .addToBackStack(null) // რომ დაბრუნება შეიძლებოდეს
-                    .commit()
-            }
+        activity.runOnUiThread {
+            val js = """
+            (function(){
+                var el = document.getElementById('$muscleId');
+                if (el) {
+                    var originalFill = el.style.fill;
+                    el.style.fill = 'red';
+                    setTimeout(function() {
+                        el.style.fill = originalFill;
+                    }, 300);
+                }
+            })();
+        """.trimIndent()
+
+            val webView = activity.findViewById<WebView>(R.id.webview)
+            webView.evaluateJavascript(js, null)
+
+            // Fragment გადასვლა 1.5 წამით დაყოვნებით
+            android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+                if (muscleId == "chest1" || muscleId == "chest2") {
+                    val fragment = Chest()
+                    activity.supportFragmentManager.beginTransaction()
+                        .replace(R.id.webview, fragment) // თუ Fragment container-ს სხვა ID აქვს, აქ შეცვალე
+                        .addToBackStack(null)
+                        .commit()
+                }
+            }, 1500)
         }
     }
+
+
 }

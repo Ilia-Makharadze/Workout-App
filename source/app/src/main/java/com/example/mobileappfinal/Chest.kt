@@ -22,10 +22,22 @@ class Chest : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val gifImageView = view.findViewById<ImageView>(R.id.barbelChestView)
+        val pushUpImageView = view.findViewById<ImageView>(R.id.pushUpView)
+        val dumbbellInclineChestFlysImage=view.findViewById<ImageView>(R.id.dumbbellInclineChestFlys)
 
         Glide.with(this)
             .asGif()
             .load(R.drawable.male_barbell_bench_press_side_givnk12) // ← აქ შენ გიფის ფაილის სახელი
             .into(gifImageView)
+
+        Glide.with(this)
+            .asGif()
+            .load(R.drawable.male_bodyweight_pushup_front) // ← აქ შენ გიფის ფაილის სახელი
+            .into(pushUpImageView)
+
+        Glide.with(this)
+            .asGif()
+            .load(R.drawable.male_dumbbell_incline_chest_flys_side) // ← აქ შენ გიფის ფაილის სახელი
+            .into(dumbbellInclineChestFlysImage)
     }
 }
