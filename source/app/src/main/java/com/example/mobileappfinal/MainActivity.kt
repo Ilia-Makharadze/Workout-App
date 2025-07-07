@@ -42,7 +42,36 @@ class MainActivity : AppCompatActivity() {
                 chestRight.addEventListener('click', function() {
                     Android.onMuscleClicked('chest2');
                 });
-
+                var bicepsRight=document.getElementById('biceps1');
+                biceps1.addEventListener('click',function(){
+                    Android.onMuscleCliked('biceps1');
+                });
+                
+                  var bicepsLeft=document.getElementById('biceps2');
+                biceps1.addEventListener('click',function(){
+                    Android.onMuscleCliked('biceps2');
+                });
+                
+                var press=document.getElementById('press');
+                press.addEventListener('click',function(){
+                    Android.onMuscleClicked('press');
+                })
+                var shoulderRight=document.getElementById('shoulders1');
+                press.addEventListener('click',function(){
+                    Android.onMuscleClicked('shoulders1');
+                })
+                var shoulderLeft=document.getElementById('shoulders2');
+                press.addEventListener('click',function(){
+                    Android.onMuscleClicked('shoulders2');
+                })
+                var forearms1=document.getElementById('forearms1');
+                press.addEventListener('click',function(){
+                    Android.onMuscleClicked('forearms1');
+                })
+                var forearms2=document.getElementById('forearms2');
+                press.addEventListener('click',function(){
+                    Android.onMuscleClicked('forearms2');
+                })
                 // სხვა კუნთებიც აქ დააყენეთ...
             }
             setupClicks();
@@ -81,6 +110,34 @@ class WebAppInterface(private val activity: MainActivity) {
                     val fragment = Chest()
                     activity.supportFragmentManager.beginTransaction()
                         .replace(R.id.webview, fragment) // თუ Fragment container-ს სხვა ID აქვს, აქ შეცვალე
+                        .addToBackStack(null)
+                        .commit()
+                }
+                if(muscleId=="biceps1" || muscleId=="biceps2"){
+                    val fragment = Biceps()
+                    activity.supportFragmentManager.beginTransaction()
+                        .replace(R.id.webview, fragment)
+                        .addToBackStack(null)
+                        .commit()
+                }
+                if(muscleId=="press"){
+                    val fragment=Press()
+                    activity.supportFragmentManager.beginTransaction()
+                        .replace(R.id.webview, fragment)
+                        .addToBackStack(null)
+                        .commit()
+                }
+                if(muscleId=="shoulders1" || muscleId=="shoulders2"){
+                    val fragment=Shoulders()
+                    activity.supportFragmentManager.beginTransaction()
+                        .replace(R.id.webview, fragment)
+                        .addToBackStack(null)
+                        .commit()
+                }
+                if(muscleId=="forearms1" || muscleId=="forearms2" ){
+                    val fragment=Forearms()
+                    activity.supportFragmentManager.beginTransaction()
+                        .replace(R.id.webview, fragment)
                         .addToBackStack(null)
                         .commit()
                 }
