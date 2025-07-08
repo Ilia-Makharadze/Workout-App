@@ -27,17 +27,17 @@ class Quads: Fragment() {
 
         Glide.with(this)
             .asGif()
-            .load(R.drawable.quads) // ← აქ შენ გიფის ფაილის სახელი
+            .load(R.drawable.quads)
             .into(gifImageView)
 
         Glide.with(this)
             .asGif()
-            .load(R.drawable.quads1) // ← აქ შენ გიფის ფაილის სახელი
+            .load(R.drawable.quads1)
             .into(pushUpImageView)
 
         Glide.with(this)
             .asGif()
-            .load(R.drawable.quads2) // ← აქ შენ გიფის ფაილის სახელი
+            .load(R.drawable.quads2)
             .into(dumbbellInclineChestFlysImage)
     }
 }

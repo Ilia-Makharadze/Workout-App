@@ -27,17 +27,17 @@ class Forearms : Fragment() {
 
         Glide.with(this)
             .asGif()
-            .load(R.drawable.formars) // ← აქ შენ გიფის ფაილის სახელი
+            .load(R.drawable.formars)
             .into(gifImageView)
 
         Glide.with(this)
             .asGif()
-            .load(R.drawable.wristcurl) // ← აქ შენ გიფის ფაილის სახელი
+            .load(R.drawable.wristcurl)
             .into(pushUpImageView)
 
         Glide.with(this)
             .asGif()
-            .load(R.drawable.piramida) // ← აქ შენ გიფის ფაილის სახელი
+            .load(R.drawable.piramida)
             .into(dumbbellInclineChestFlysImage)
     }
 }

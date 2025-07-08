@@ -30,13 +30,13 @@
 
 	<script type="text/javascript">
 		function setupClicks() {
-		var paths = document.querySelectorAll('path'); // მოძებნის ყველა path ელემენტს
+		var paths = document.querySelectorAll('path');
 
 		paths.forEach(function(path) {
 		path.addEventListener('click', function() {
-		var muscleId = path.getAttribute('id'); // აიღებს path-ის id-ს
+		var muscleId = path.getAttribute('id'); // take path id
 		if (muscleId) {
-		Android.onMuscleClicked(muscleId); // გამოიძახებს Kotlin ფუნქციას
+		Android.onMuscleClicked(muscleId); // call this function
 		}
 		});
 		});

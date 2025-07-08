@@ -1,19 +1,24 @@
 package com.example.mobileappfinal
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.webkit.JavascriptInterface
 import android.webkit.WebSettings
 import android.webkit.WebView
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.appcompat.app.AlertDialog
 
 class WebViewFragment : Fragment() {
 
     private lateinit var webView: WebView
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         val view = inflater.inflate(R.layout.fragment_webview, container, false)
 
         webView = view.findViewById(R.id.webview)
@@ -21,7 +26,40 @@ class WebViewFragment : Fragment() {
         webSettings.javaScriptEnabled = true
 
         webView.addJavascriptInterface(WebAppInterface(requireActivity() as MainActivity), "Android")
-        webView.loadUrl("file:///android_asset/ssss.svg")
+
+        loadSvg("file:///android_asset/ssss.svg") // დეფოლტად წინა მხარე
+
+        setupMenu()
+
+        return view
+    }
+
+    private fun setupMenu() {
+        val menuHost: MenuHost = requireActivity()
+
+        menuHost.addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.webview_menu, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return when(menuItem.itemId) {
+                    R.id.action_front_body -> {
+                        loadSvg("file:///android_asset/ssss.svg")
+                        true
+                    }
+                    R.id.action_back_body -> {
+                        loadSvg("file:///android_asset/svg-path.svg")
+                        true
+                    }
+                    else -> false
+                }
+            }
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+    }
+
+    private fun loadSvg(url: String) {
+        webView.loadUrl(url)
 
         val jsCode = """
             function setupClicks() {
@@ -42,9 +80,10 @@ class WebViewFragment : Fragment() {
             setupClicks();
         """.trimIndent()
 
-        webView.evaluateJavascript(jsCode, null)
-
-        return view
+        // ველი რომ SVG ჩაიტვირთოს და მერე ვრთავთ JS-ს
+        webView.postDelayed({
+            webView.evaluateJavascript(jsCode, null)
+        }, 500)
     }
 
     inner class WebAppInterface(private val activity: MainActivity) {
@@ -81,7 +120,7 @@ class WebViewFragment : Fragment() {
 
                     fragment?.let {
                         activity.supportFragmentManager.beginTransaction()
-                            .replace(R.id.fragment_container, it) // 🟢 სწორად მითითებული ID
+                            .replace(R.id.fragment_container, it)
                             .addToBackStack(null)
                             .commit()
                     }

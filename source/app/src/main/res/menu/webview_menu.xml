@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_choose_body"
+        android:title="choose"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_more">
+
+        <menu> <!--submenu -->
+            <item
+                android:id="@+id/action_front_body"
+                android:title="Front Side" />
+            <item
+                android:id="@+id/action_back_body"
+                android:title="Back Side" />
+        </menu>
+    </item>
+</menu>

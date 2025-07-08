@@ -27,17 +27,17 @@ class Chest : Fragment() {
 
         Glide.with(this)
             .asGif()
-            .load(R.drawable.male_barbell_bench_press_side_givnk12) // ← აქ შენ გიფის ფაილის სახელი
+            .load(R.drawable.male_barbell_bench_press_side_givnk12)
             .into(gifImageView)
 
         Glide.with(this)
             .asGif()
-            .load(R.drawable.male_bodyweight_pushup_front) // ← აქ შენ გიფის ფაილის სახელი
+            .load(R.drawable.male_bodyweight_pushup_front)
             .into(pushUpImageView)
 
         Glide.with(this)
             .asGif()
-            .load(R.drawable.male_dumbbell_incline_chest_flys_side) // ← აქ შენ გიფის ფაილის სახელი
+            .load(R.drawable.male_dumbbell_incline_chest_flys_side)
             .into(dumbbellInclineChestFlysImage)
     }
 }

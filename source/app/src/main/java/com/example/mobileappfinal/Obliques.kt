@@ -27,17 +27,17 @@ class Obliques : Fragment() {
 
         Glide.with(this)
             .asGif()
-            .load(R.drawable.planka) // ← აქ შენ გიფის ფაილის სახელი
+            .load(R.drawable.planka)
             .into(gifImageView)
 
         Glide.with(this)
             .asGif()
-            .load(R.drawable.russiantwist) // ← აქ შენ გიფის ფაილის სახელი
+            .load(R.drawable.russiantwist)
             .into(pushUpImageView)
 
         Glide.with(this)
             .asGif()
-            .load(R.drawable.layingleg) // ← აქ შენ გიფის ფაილის სახელი
+            .load(R.drawable.layingleg)
             .into(dumbbellInclineChestFlysImage)
     }
 }

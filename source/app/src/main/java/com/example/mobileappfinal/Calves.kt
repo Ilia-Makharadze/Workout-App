@@ -27,17 +27,17 @@ class Calves: Fragment() {
 
         Glide.with(this)
             .asGif()
-            .load(R.drawable.barbelloverheadpress) // ← აქ შენ გიფის ფაილის სახელი
+            .load(R.drawable.barbelloverheadpress)
             .into(gifImageView)
 
         Glide.with(this)
             .asGif()
-            .load(R.drawable.dumbellshoulder) // ← აქ შენ გიფის ფაილის სახელი
+            .load(R.drawable.dumbellshoulder)
             .into(pushUpImageView)
 
         Glide.with(this)
             .asGif()
-            .load(R.drawable.uganieresi) // ← აქ შენ გიფის ფაილის სახელი
+            .load(R.drawable.uganieresi)
             .into(dumbbellInclineChestFlysImage)
     }
 }

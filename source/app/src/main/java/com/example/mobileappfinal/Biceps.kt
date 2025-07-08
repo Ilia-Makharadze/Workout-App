@@ -27,17 +27,17 @@ class Biceps : Fragment() {
 
         Glide.with(this)
             .asGif()
-            .load(R.drawable.turnikibiceps) // ← აქ შენ გიფის ფაილის სახელი
+            .load(R.drawable.turnikibiceps)
             .into(gifImageView)
 
         Glide.with(this)
             .asGif()
-            .load(R.drawable.biceps) // ← აქ შენ გიფის ფაილის სახელი
+            .load(R.drawable.biceps)
             .into(pushUpImageView)
 
         Glide.with(this)
             .asGif()
-            .load(R.drawable.hammer) // ← აქ შენ გიფის ფაილის სახელი
+            .load(R.drawable.hammer)
             .into(dumbbellInclineChestFlysImage)
     }
 }

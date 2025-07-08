@@ -22,7 +22,7 @@ class LoginFragment : Fragment() {
         val loginBtn = view.findViewById<Button>(R.id.login_button)
         val registerText = view.findViewById<TextView>(R.id.go_to_register)
 
-        // 🟢 აიძულე focus და კლავიატურის გამოჩენა username-ზე
+        // 🟢 focus to use Keyboard
         username.requestFocus()
         username.post {
             val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
