@@ -72,6 +72,23 @@ class MainActivity : AppCompatActivity() {
                 press.addEventListener('click',function(){
                     Android.onMuscleClicked('forearms2');
                 })
+                 var quads1=document.getElementById('quads1');
+                press.addEventListener('click',function(){
+                    Android.onMuscleClicked('quads1');
+                })
+                 var quads2=document.getElementById('quads2');
+                press.addEventListener('click',function(){
+                    Android.onMuscleClicked('quads2');
+                })
+                obliques1
+                 var obliques1=document.getElementById('obliques1');
+                press.addEventListener('click',function(){
+                    Android.onMuscleClicked('obliques1');
+                })
+                 var obliques2=document.getElementById('obliques2');
+                press.addEventListener('click',function(){
+                    Android.onMuscleClicked('obliques2');
+                })
                 // სხვა კუნთებიც აქ დააყენეთ...
             }
             setupClicks();
@@ -141,7 +158,21 @@ class WebAppInterface(private val activity: MainActivity) {
                         .addToBackStack(null)
                         .commit()
                 }
-            }, 1500)
+                if(muscleId=="quads1" || muscleId=="quads2" ){
+                    val fragment=Quads()
+                    activity.supportFragmentManager.beginTransaction()
+                        .replace(R.id.webview, fragment)
+                        .addToBackStack(null)
+                        .commit()
+                }
+                if(muscleId=="obliques1" || muscleId=="obliques2" ){
+                    val fragment=Obliques()
+                    activity.supportFragmentManager.beginTransaction()
+                        .replace(R.id.webview, fragment)
+                        .addToBackStack(null)
+                        .commit()
+                }
+            }, 900)
         }
     }
 
