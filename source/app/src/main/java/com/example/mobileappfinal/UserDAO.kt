@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase
 class UserDAO(context: Context) {
     private val dbHelper = UserDatabaseHelper(context)
 
-    // რეგისტრაცია
+    // registation
     fun registerUser(username: String, password: String): Boolean {
         val db: SQLiteDatabase = dbHelper.writableDatabase
         val values = ContentValues().apply {
@@ -24,7 +24,7 @@ class UserDAO(context: Context) {
         }
     }
 
-    // ლოგინი
+    // logIn
     fun loginUser(username: String, password: String): Boolean {
         val db: SQLiteDatabase = dbHelper.readableDatabase
         val cursor = db.rawQuery(

@@ -27,8 +27,7 @@ class WebViewFragment : Fragment() {
 
         webView.addJavascriptInterface(WebAppInterface(requireActivity() as MainActivity), "Android")
 
-        loadSvg("file:///android_asset/ssss.svg") // დეფოლტად წინა მხარე
-
+        loadSvg("file:///android_asset/ssss.svg") // defoalt page
         setupMenu()
 
         return view
@@ -80,7 +79,7 @@ class WebViewFragment : Fragment() {
             setupClicks();
         """.trimIndent()
 
-        // ველი რომ SVG ჩაიტვირთოს და მერე ვრთავთ JS-ს
+        // to load svg from js
         webView.postDelayed({
             webView.evaluateJavascript(jsCode, null)
         }, 500)

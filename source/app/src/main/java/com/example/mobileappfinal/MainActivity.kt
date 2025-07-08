@@ -11,8 +11,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)  // ეს აუცილებელია, რომ მენიუ გამოჩნდეს
-
+        setSupportActionBar(toolbar)
         //  Fragment - Login
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, LoginFragment())
