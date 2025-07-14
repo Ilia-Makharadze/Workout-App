@@ -54,12 +54,19 @@ Build Workout-App from the source and install dependencies:
    ```bash
    git clone https://github.com/Ilia-Makharadze/Workout-App
 2.Navigate to the project directory:
+  ```bash
   cd Workout-App
+```
 3. Install the dependencies:
 Using gradle:
+  ```bash
   gradle build
+```
   Testing
 Workout-app uses the {test_framework} test framework. Run the test suite with:
 
-Using gradle: gradle test
+Using gradle: 
+```bash
+  gradle test
+```
 
