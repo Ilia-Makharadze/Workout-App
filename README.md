@@ -8,7 +8,7 @@ Built with the tools and technologies:
 - Gradle  
 - XML  
 - Kotlin  
-
+- Javascript
 ---
 
 ## Table of Contents  
