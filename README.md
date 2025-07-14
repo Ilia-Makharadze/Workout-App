@@ -1,7 +1,6 @@
 # WORKOUT-APP  
 **Transform Your Fitness Journey with Power and Precision**  
 
-*Last commit last Tuesday*  
 
 Built with the tools and technologies:  
 - GitHub  
